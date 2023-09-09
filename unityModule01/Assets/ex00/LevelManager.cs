@@ -6,7 +6,9 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public GameObject[] characters; // Un array contenente i personaggi.
+    public GameObject[] exits; // Un array contenente le uscite.
     public CameraFollow cameraFollow;
+    public bool allExitsActive = false;
     private int activeCharacterIndex = 0; // Indice del personaggio attivo.
     
 
@@ -18,32 +20,22 @@ public class LevelManager : MonoBehaviour
             characters[i].GetComponent<CharacterMovement>().isControlEnabled = false;
             characters[i].GetComponent<Renderer>().enabled = true;
         }
-                // Inizializza cameraFollow con il componente CameraFollow
+        // Inizializza cameraFollow con il componente CameraFollow
         cameraFollow = Camera.main.GetComponent<CameraFollow>();
-        // Imposta il personaggio attivo iniziale come target della camera
         cameraFollow.target = null;
     }
 
     private void Update()
     {
-        // Controlla l'input dei tasti alfanumerici
         if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SwitchCharacter(0); // Cambia il controllo al personaggio 1
-        }
+            SwitchCharacter(0);
         else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SwitchCharacter(1); // Cambia il controllo al personaggio 2
-        }
+            SwitchCharacter(1);
         else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SwitchCharacter(2); // Cambia il controllo al personaggio 3
-        }
-
+            SwitchCharacter(2);
         if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Backspace))
-        {
             ResetScene();
-        }
+
     }
 
     private void SwitchCharacter(int characterIndex)
@@ -56,8 +48,19 @@ public class LevelManager : MonoBehaviour
 
     private void ResetScene()
     {
-        // Reload the current scene.
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
+    }
+
+    // controlla se tutte le exits sono attive
+    private bool CheckExits()
+    {
+        bool allExitsActive = true;
+        for (int i = 0; i < exits.Length; i++)
+        {
+            if (!exits[i].GetComponent<Exits>().isActive)
+                allExitsActive = false;
+        }
+        return allExitsActive;
     }
 }

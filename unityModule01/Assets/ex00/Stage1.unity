@@ -833,10 +833,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characters:
+  - {fileID: 1916566549}
+  - {fileID: 1418935425}
+  - {fileID: 1088317029}
+  exits:
   - {fileID: 974775348}
   - {fileID: 1368947951}
   - {fileID: 1227355240}
   cameraFollow: {fileID: 0}
+  allExitsActive: 0
 --- !u!4 &643433574
 Transform:
   m_ObjectHideFlags: 0
@@ -1359,9 +1364,10 @@ GameObject:
   - component: {fileID: 974775352}
   - component: {fileID: 974775351}
   - component: {fileID: 974775350}
+  - component: {fileID: 974775353}
   m_Layer: 0
   m_Name: CExit
-  m_TagString: ClairExit
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1452,6 +1458,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974775348}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &974775353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974775348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050f94abb0bf6e149aaba39e2f67050a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  characterName: Claire
+  exitTag: ClaireExit
 --- !u!1 &982008558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1676,9 @@ MonoBehaviour:
   - {fileID: 1916566549}
   - {fileID: 1418935425}
   - {fileID: 1088317029}
+  exits: []
   cameraFollow: {fileID: 0}
+  allExitsActive: 0
 --- !u!114 &1088317032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,7 +1774,7 @@ Transform:
   m_GameObject: {fileID: 1088317029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 524.17004, y: 5.31, z: -10.48682}
+  m_LocalPosition: {x: 618, y: 5.31, z: -10.48682}
   m_LocalScale: {x: 1.5, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1769,9 +1792,10 @@ GameObject:
   - component: {fileID: 1227355244}
   - component: {fileID: 1227355243}
   - component: {fileID: 1227355242}
+  - component: {fileID: 1227355245}
   m_Layer: 0
   m_Name: TExit
-  m_TagString: ThomasExit
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1785,7 +1809,7 @@ Transform:
   m_GameObject: {fileID: 1227355240}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.826, y: 1.32, z: -0.77}
+  m_LocalPosition: {x: 62, y: -10.2, z: -0.77}
   m_LocalScale: {x: 6.0067654, y: 0.19480737, z: 3.611081}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1862,6 +1886,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227355240}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1227355245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227355240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050f94abb0bf6e149aaba39e2f67050a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  characterName: Thomas
+  exitTag: ThomasExit
 --- !u!1 &1315996989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,9 +2021,10 @@ GameObject:
   - component: {fileID: 1368947955}
   - component: {fileID: 1368947954}
   - component: {fileID: 1368947953}
+  - component: {fileID: 1368947956}
   m_Layer: 0
   m_Name: JExit
-  m_TagString: JohnExit
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1998,7 +2038,7 @@ Transform:
   m_GameObject: {fileID: 1368947951}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.826, y: 1.32, z: -0.77}
+  m_LocalPosition: {x: 52.1, y: 13.8, z: -0.77}
   m_LocalScale: {x: 6.0067654, y: 0.19480737, z: 3.611081}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2075,6 +2115,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1368947951}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1368947956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368947951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050f94abb0bf6e149aaba39e2f67050a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  characterName: John
+  exitTag: JohnExit
 --- !u!1 &1418935425
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,7 +2143,6 @@ GameObject:
   - component: {fileID: 1418935430}
   - component: {fileID: 1418935429}
   - component: {fileID: 1418935428}
-  - component: {fileID: 1418935427}
   - component: {fileID: 1418935426}
   m_Layer: 0
   m_Name: John
@@ -2124,23 +2178,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1418935427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1418935425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 923b6d7f3cab1344d83dab24d1dcbe11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characters:
-  - {fileID: 1916566549}
-  - {fileID: 1418935425}
-  - {fileID: 1088317029}
-  cameraFollow: {fileID: 0}
 --- !u!114 &1418935428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2236,7 +2273,7 @@ Transform:
   m_GameObject: {fileID: 1418935425}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 521.10004, y: 6.21, z: -10.48682}
+  m_LocalPosition: {x: 521.6, y: 10.5, z: -10.48682}
   m_LocalScale: {x: 1, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2657,7 +2694,9 @@ MonoBehaviour:
   - {fileID: 1916566549}
   - {fileID: 1418935425}
   - {fileID: 1088317029}
+  exits: []
   cameraFollow: {fileID: 0}
+  allExitsActive: 0
 --- !u!114 &1916566552
 MonoBehaviour:
   m_ObjectHideFlags: 0
