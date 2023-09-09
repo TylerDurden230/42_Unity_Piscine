@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject[] characters; // Un array contenente i personaggi.
-    public GameObject[] exits; // Un array contenente le uscite.
+    public GameObject[] characters;
+    public GameObject[] exits;
     public CameraFollow cameraFollow;
     public bool allExitsActive = false;
-    private int activeCharacterIndex = 0; // Indice del personaggio attivo.
+    private int activeCharacterIndex = 0;
     
 
     private void Start()
     {
-        // Inizialmente, nessun personaggio è attivo, ma sono tutti renderizzati.
+        // Inizialmente, nessun personaggio è attivo, ma sono tutti renderizzati
         for (int i = 0; i < characters.Length; i++)
         {
             characters[i].GetComponent<CharacterMovement>().isControlEnabled = false;
@@ -35,7 +35,9 @@ public class LevelManager : MonoBehaviour
             SwitchCharacter(2);
         if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Backspace))
             ResetScene();
-
+        Debug.Log("CheckExits: " + allExitsActive);
+        if (CheckExits())
+            Debug.Log("Level Complete!");
     }
 
     private void SwitchCharacter(int characterIndex)
@@ -55,11 +57,15 @@ public class LevelManager : MonoBehaviour
     // controlla se tutte le exits sono attive
     private bool CheckExits()
     {
-        bool allExitsActive = true;
         for (int i = 0; i < exits.Length; i++)
         {
-            if (!exits[i].GetComponent<Exits>().isActive)
+            if (exits[i].GetComponent<Exits>().isActive)
+                allExitsActive = true;
+            else
+            {
                 allExitsActive = false;
+                break;
+            }
         }
         return allExitsActive;
     }
