@@ -9,18 +9,19 @@ TagManager:
   - ClairExit
   - ThomasExit
   - JohnExit
+  - Exit
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - p1
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ClaireLayer
+  - JohnLayer
+  - ThomasLayer
+  - p2
+  - p3
   - 
   - 
   - 
